@@ -107,17 +107,20 @@
       text-decoration: underline;
       font-weight: 500;
     }
+    .bottom-logo-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5em;
+      margin-bottom: 1.5em;
+    }
     .bottom-logo {
-      position: fixed;
-      left: 50%;
-      bottom: 20px;
-      transform: translateX(-50%);
       width: min(300px, 60vw);
       height: auto;
       max-height: 18vh;
       object-fit: contain;
-      z-index: 100;
       pointer-events: none;
+      display: block;
     }
     @media (max-width: 900px) {
       main {
@@ -134,10 +137,12 @@
       section { padding: 3vw 2vw; }
       .policy-list, .tips-list li { font-size: 0.98em; }
       .bottom-logo { width: 80vw; max-height: 12vh; }
+      .bottom-logo-wrapper { margin-top: 2em; margin-bottom: 1em; }
     }
     @media (max-width: 400px) {
       header h1 { font-size: 1rem; }
       .bottom-logo { width: 95vw; max-height: 10vh; }
+      .bottom-logo-wrapper { margin-top: 1em; margin-bottom: 0.5em; }
     }
     /* Wiggle animation for header */
     @keyframes wiggle {
@@ -204,7 +209,9 @@
       </div>
     </section>
   </main>
-  <img src="KCPS.png" alt="KCPS Logo" class="bottom-logo" />
+  <div class="bottom-logo-wrapper">
+    <img src="KCPS.png" alt="KCPS Logo" class="bottom-logo" />
+  </div>
   <script>
     // Tab navigation
     const tabBtns = document.querySelectorAll('.tab-btn');
