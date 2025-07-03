@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Back to School!</title>
+  <style>
+    :root {
+      --primary-blue: #005dab;
+      --primary-gold: #edb21f;
+      --background: #f4f8fb;
+      --card-bg: #fff;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--background);
+      color: #222;
+    }
+    header {
+      background: linear-gradient(90deg, var(--primary-blue), var(--primary-gold));
+      color: #fff;
+      padding: 2rem 1rem 1.5rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0 1rem 0;
+    }
+    nav button {
+      background: var(--primary-blue);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: var(--shadow);
+    }
+    nav button.active, nav button:hover {
+      background: var(--primary-gold);
+      color: var(--primary-blue);
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    section {
+      display: none;
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem;
+      margin-bottom: 2rem;
+      animation: fadeIn 0.5s;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tips-list {
+      list-style: none;
+      padding: 0;
+    }
+    .tips-list li {
+      margin-bottom: 1.5rem;
+      background: #f0f6fa;
+      border-left: 6px solid var(--primary-gold);
+      padding: 1rem 1rem 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: background 0.2s;
+    }
+    .tips-list li:hover {
+      background: #e6f0fa;
+    }
+    .upload-area {
+      border: 2px dashed var(--primary-blue);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      background: #f8fafc;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+    .upload-area.dragover {
+      border-color: var(--primary-gold);
+    }
+    .policy-list {
+      margin-top: 1rem;
+      text-align: left;
+    }
+    .policy-list a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--primary-blue);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      nav { flex-direction: column; gap: 1rem; }
+      main { padding: 0.5rem; }
+      section { padding: 1rem; }
+    }
+    /* Wiggle animation for header */
+    @keyframes wiggle {
+      0% { transform: rotate(0deg); }
+      15% { transform: rotate(-7deg); }
+      30% { transform: rotate(7deg); }
+      45% { transform: rotate(-5deg); }
+      60% { transform: rotate(5deg); }
+      75% { transform: rotate(-3deg); }
+      100% { transform: rotate(0deg); }
+    }
+    #welcome-title:hover {
+      animation: wiggle 0.7s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="welcome-title" style="cursor:pointer;">🎉 Welcome Back, Students! 🎉</h1>
+    <p>We're excited to kick off another amazing year at <b>Kansas City Public Schools</b>!<br>
+      <span style="font-size:1.1em;">Explore below for tips, tricks, and important info to make your year awesome.</span>
+    </p>
+    <div id="fun-fact" style="margin-top:1.2em;font-size:1.1em;color:var(--primary-gold);font-weight:500;"></div>
+  </header>
+  <nav>
+    <button class="tab-btn active" data-tab="tips">iPad Tips & Tricks</button>
+    <button class="tab-btn" data-tab="policy">Acceptable Use Policy</button>
+  </nav>
+  <main>
+    <section id="tips" class="active">
+      <h2 style="color: var(--primary-blue);">📱 Personalize Your iPad</h2>
+      <ul class="tips-list">
+        <li>
+          <b>Change Your Wallpaper:</b><br>
+          Go to <b>Settings</b> &rarr; <b>Wallpaper</b> &rarr; <b>Choose a New Wallpaper</b>. Pick a fun photo or one of Apple's dynamic backgrounds!
+        </li>
+        <li>
+          <b>Set Icon Size:</b><br>
+          In <b>Settings</b> &rarr; <b>Display & Brightness</b> &rarr; <b>View</b>, choose between <b>Standard</b> and <b>Zoomed</b> to adjust icon size.
+        </li>
+        <li>
+          <b>Change Icon Colors:</b><br>
+          Long press anywhere on the <b>Home Screen</b> then click the <b>Edit</b> button in the top left then hit <b>Customize</b>. Here you can change your icon color and size!
+        </li>
+      </ul>
+    </section>
+    <section id="policy">
+      <h2 style="color: var(--primary-gold);">📄 Acceptable Use Policy</h2>
+      <div class="policy-list" style="max-width:700px;margin:0 auto;text-align:left;line-height:1.7;font-size:1.05em;background:#f8fafc;padding:1.5em 1.2em;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <h3 style="color:var(--primary-blue);margin-top:0;">Student Acceptable Use Policy<br><span style="font-size:0.8em;color:#555;">(Chromebooks & iPads)</span></h3>
+        <ol style="padding-left:1.2em;">
+          <li><b>Purpose:</b> School devices are provided for educational use only. Students must use Chromebooks and iPads to support learning and follow teacher instructions.</li>
+          <li><b>Respectful Use:</b> Treat devices with care. Do not damage, deface, or remove school labels. Keep food and drinks away from devices.</li>
+          <li><b>Accountability:</b> Students are responsible for all activity on their assigned device. Do not share your device or account credentials with others.</li>
+          <li><b>Appropriate Content:</b> Access only school-appropriate websites, apps, and content. Do not attempt to access, download, or share inappropriate, illegal, or offensive material.</li>
+          <li><b>Privacy & Security:</b> Do not attempt to bypass security settings, filters, or install unauthorized software. Do not attempt to access other users' accounts or files.</li>
+          <li><b>Digital Citizenship:</b> Communicate respectfully online. Cyberbullying, harassment, or inappropriate language is strictly prohibited.</li>
+          <li><b>Media & Photos:</b> Only use the camera and microphone for school assignments with teacher permission. Do not record or photograph others without consent.</li>
+          <li><b>Device Care:</b> Bring your device to school fully charged each day. Report any damage, loss, or malfunction to a teacher or IT staff immediately.</li>
+          <li><b>Consequences:</b> Violations of this policy may result in loss of device privileges, disciplinary action, and/or financial responsibility for damages.</li>
+          <li><b>Agreement:</b> Use of school devices indicates acceptance of this policy and all related district technology guidelines.</li>
+        </ol>
+        <p style="margin-top:1.5em;color:#666;font-size:0.98em;">For questions or more information, contact your school's technology office or visit the district website.</p>
+      </div>
+    </section>
+  </main>
+  <img src="KCPS.png" alt="KCPS Logo" style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);width:300px;height:150px;object-fit:contain;z-index:100;pointer-events:none;" />
+  <script>
+    // Tab navigation
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('main section');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Confetti effect on first load
+    function launchConfetti() {
+      const confettiColors = ['#005dab', '#edb21f', '#fff', '#e0e0e0'];
+      const confettiCount = 150;
+      const confettiContainer = document.createElement('div');
+      confettiContainer.style.position = 'fixed';
+      confettiContainer.style.left = '0';
+      confettiContainer.style.top = '0';
+      confettiContainer.style.width = '100vw';
+      confettiContainer.style.height = '100vh';
+      confettiContainer.style.pointerEvents = 'none';
+      confettiContainer.style.zIndex = '9999';
+      document.body.appendChild(confettiContainer);
+      for (let i = 0; i < confettiCount; i++) {
+        const conf = document.createElement('div');
+        const size = Math.random() * 10 + 8;
+        conf.style.position = 'absolute';
+        conf.style.bottom = '-30px';
+        conf.style.left = `${Math.random() * 100}vw`;
+        conf.style.width = `${size}px`;
+        conf.style.height = `${size * 0.6}px`;
+        conf.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        conf.style.borderRadius = `${Math.random() * 50}%`;
+        conf.style.opacity = 0.85;
+        conf.style.transform = `rotate(${Math.random() * 360}deg)`;
+        conf.style.transition = 'transform 1.2s cubic-bezier(.23,1.02,.64,1), opacity 1.2s';
+        confettiContainer.appendChild(conf);
+        setTimeout(() => {
+          const upY = window.innerHeight * (0.7 + Math.random() * 0.3);
+          conf.style.transform = `translateY(-${upY}px) rotate(${Math.random() * 720}deg)`;
+          conf.style.opacity = 1;
+          setTimeout(() => {
+            const drift = (Math.random() - 0.5) * 100;
+            conf.style.transition = 'transform 1.4s cubic-bezier(.45,.05,.55,.95), opacity 1.4s';
+            conf.style.transform = `translateY(0px) translateX(${drift}px) rotate(${Math.random() * 1440}deg)`;
+            conf.style.opacity = 0.7;
+          }, 900 + Math.random() * 200);
+        }, 50 + Math.random() * 200);
+      }
+      setTimeout(() => {
+        confettiContainer.remove();
+      }, 3000);
+    }
+    window.addEventListener('DOMContentLoaded', launchConfetti);
+
+    // Fun facts for students
+    const funFacts = [
+      "Did you know? Honey never spoils! Archaeologists have found 3000-year-old honey in ancient tombs.",
+      "Fun Fact: Octopuses have three hearts!",
+      "Did you know? Your iPad can take a screenshot by pressing the top button and the volume up button at the same time!",
+      "Fun Fact: The Eiffel Tower can be 15 cm taller during hot days.",
+      "Did you know? Bananas are berries, but strawberries aren't!",
+      "Fun Fact: A group of flamingos is called a 'flamboyance'!",
+      "Did you know? The dot over the letter 'i' is called a tittle.",
+      "Fun Fact: Some cats are allergic to humans!",
+      "Did you know? The shortest war in history lasted 38 minutes.",
+      "Fun Fact: You can't hum while holding your nose closed!"
+    ];
+    document.getElementById('fun-fact').textContent = funFacts[Math.floor(Math.random() * funFacts.length)];
+  </script>
+</body>
+</html>
