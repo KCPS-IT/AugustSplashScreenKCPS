@@ -21,52 +21,54 @@
     header {
       background: linear-gradient(90deg, var(--primary-blue), var(--primary-gold));
       color: #fff;
-      padding: 2rem 1rem 1.5rem 1rem;
+      padding: 2.5vw 2vw 2vw 2vw;
       text-align: center;
       box-shadow: var(--shadow);
     }
     header h1 {
       margin: 0 0 0.5rem 0;
-      font-size: 2.5rem;
+      font-size: clamp(1.5rem, 4vw, 2.7rem);
       letter-spacing: 2px;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
       margin: 0;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0 1rem 0;
+      gap: 2vw;
+      margin: 2vw 0 1vw 0;
+      flex-wrap: wrap;
     }
     nav button {
       background: var(--primary-blue);
       color: #fff;
       border: none;
-      padding: 0.75rem 1.5rem;
+      padding: 0.75em 1.5em;
       border-radius: 30px;
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.2s;
       box-shadow: var(--shadow);
+      margin-bottom: 0.5em;
     }
     nav button.active, nav button:hover {
       background: var(--primary-gold);
       color: var(--primary-blue);
     }
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: 2vw 1vw 1vw 1vw;
     }
     section {
       display: none;
       background: var(--card-bg);
       border-radius: 18px;
       box-shadow: var(--shadow);
-      padding: 2rem 1.5rem;
-      margin-bottom: 2rem;
+      padding: 2.5vw 2vw;
+      margin-bottom: 2vw;
       animation: fadeIn 0.5s;
     }
     section.active {
@@ -81,45 +83,61 @@
       padding: 0;
     }
     .tips-list li {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.5em;
       background: #f0f6fa;
       border-left: 6px solid var(--primary-gold);
-      padding: 1rem 1rem 1rem 1.5rem;
+      padding: 1em 1em 1em 1.5em;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       transition: background 0.2s;
+      font-size: clamp(1em, 2vw, 1.15em);
     }
     .tips-list li:hover {
       background: #e6f0fa;
     }
-    .upload-area {
-      border: 2px dashed var(--primary-blue);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      background: #f8fafc;
-      margin-bottom: 1rem;
-      transition: border-color 0.2s;
-    }
-    .upload-area.dragover {
-      border-color: var(--primary-gold);
-    }
     .policy-list {
-      margin-top: 1rem;
+      margin-top: 1em;
       text-align: left;
+      word-break: break-word;
     }
     .policy-list a {
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.5em;
       color: var(--primary-blue);
       text-decoration: underline;
       font-weight: 500;
     }
+    .bottom-logo {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      width: min(300px, 60vw);
+      height: auto;
+      max-height: 18vh;
+      object-fit: contain;
+      z-index: 100;
+      pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      main {
+        padding: 2vw 2vw 1vw 2vw;
+      }
+      section {
+        padding: 4vw 2vw;
+      }
+    }
     @media (max-width: 600px) {
-      header h1 { font-size: 1.5rem; }
+      header h1 { font-size: 1.2rem; }
       nav { flex-direction: column; gap: 1rem; }
-      main { padding: 0.5rem; }
-      section { padding: 1rem; }
+      main { padding: 1vw; }
+      section { padding: 3vw 2vw; }
+      .policy-list, .tips-list li { font-size: 0.98em; }
+      .bottom-logo { width: 80vw; max-height: 12vh; }
+    }
+    @media (max-width: 400px) {
+      header h1 { font-size: 1rem; }
+      .bottom-logo { width: 95vw; max-height: 10vh; }
     }
     /* Wiggle animation for header */
     @keyframes wiggle {
@@ -186,7 +204,7 @@
       </div>
     </section>
   </main>
-  <img src="KCPS.png" alt="KCPS Logo" style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);width:300px;height:150px;object-fit:contain;z-index:100;pointer-events:none;" />
+  <img src="KCPS.png" alt="KCPS Logo" class="bottom-logo" />
   <script>
     // Tab navigation
     const tabBtns = document.querySelectorAll('.tab-btn');
